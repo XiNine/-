@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>移动端滑动回弹</title>
+    <style>
+      *{ 
+         margin: 0;
+         padding: 0;
+      }
+      #wrap{
+         width: 100px;
+         height: 600px;
+         margin: 20px auto;
+         box-sizing: border-box;
+         display: flex;
+         flex-direction: column;
+         border: 1px solid #696969;
+         border-radius: 10px;
+         overflow: hidden;
+      }
+      #wrap ul{
+         list-style: none;
+         display: flex;
+         flex-direction: column;
+         flex: 1;
+         border-radius: 10px;
+         background: #ddd;
+         overflow-y: auto;
+         scroll-behavior: smooth;
+      }
+      #wrap ul li{
+         text-align: center;
+         color: white;
+         font-weight: bloder;
+         padding: 100px 0;
+      }
+    </style>
+</head>
+<body>
+   <div id="wrap">
+      <ul>
+         <li style="background: #00FA9A;">1</li>
+         <li style="background: #DAA520;">2</li>
+         <li style="background: #FF7F50;">3</li>
+         <li style="background:#8B0000;">4</li>
+      </ul>
+   </div>
+   <script>
+      const wrap = document.getElementById('wrap');
+      const ul = wrap.children[0];
+      const maxMove = 500;
+      let startY = 0;
+
+      //触碰开始
+      wrap.addEventListener('touchstart',(e)=>{
+         startY = e.changedTouches[0].clientY;
+      })
+
+      //移动触发
+      wrap.addEventListener('touchmove',(e)=>{
+        const moveY = e.changedTouches[0].clientY - startY <= maxMove ? e.changedTouches[0].clientY - startY : maxMove;
+        Object.assign(ul.style,{
+           transition:'none',
+           transform:`translateY(${0.3*moveY}px)`
+        })
+      })
+
+      //触碰离开
+      wrap.addEventListener('touchend',(e)=>{
+         Object.assign(ul.style,{
+            transition:'transform .6s',
+            transform:'translateY(0px)'
+         })
+      })
+
+      //作者：XiNine；写于：2020/03/12
+   </script>
+</body>
+</html>

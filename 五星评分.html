@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>五星评分</title>
+	<style>
+		#wrap{
+			font-size: 3rem;
+			color: #FFD700;
+			text-align: center;
+			cursor: pointer;
+		}
+	</style>
+</head>
+<body>
+	<div id="wrap">
+		<span class="sub" name="1"></span>
+		<span class="sub" name="2"></span>
+		<span class="sub" name="3"></span>
+		<span class="sub" name="4"></span>
+		<span class="sub" name="5"></span>
+	</div>
+	<script>
+		(function(){
+			const wrap = document.getElementById('wrap');
+			const sub = document.querySelectorAll('.sub');
+
+			function setScore(num = 0){
+				let long = "★★★★★☆☆☆☆☆".slice(5 - num,10 - num);
+				for(let i in long){
+					sub[i].innerText = long[i];
+				}
+			}
+
+			setScore();
+
+			wrap.addEventListener('click',function(e){
+				const target = e.target;
+				if(target.nodeName === 'SPAN'){
+					setScore(target.getAttribute('name'));
+				}
+			},false);
+
+		}())
+		//作者：XiNine；写于：2020/03/03
+	</script>
+</body>
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>相册</title>
+		<style type="text/css">
+			*{margin: 0;padding: 0;}
+			#wrapper{
+				position: fixed;
+				width: 100%;
+				height: 100%;
+				background: url('http://img01.1sucai.com/171028/330852-1G02P1424011.jpg') no-repeat center;
+				background-size: 100% 100%;
+				display: none;
+			}
+			#wrapper .img_box{
+				width: 280px;
+				height: 360px;
+				transform-style: preserve-3d;
+				animation: go 26s linear infinite;
+				transform: rotateX(60deg) rotateY(-60deg);
+				margin: 100px auto 0;
+			}
+			#wrapper .img_box img{
+				width: 280px;
+				height: 360px;
+				border: 10px groove #FFD700;
+				position: absolute;
+				left: 0;
+				top: 0;
+			}
+			#wrapper .img_box img:nth-child(1){
+				transform:translateZ(600px);
+			}
+			#wrapper .img_box img:nth-child(2){
+				transform:rotateY(36deg) translateZ(600px);
+			}
+			#wrapper .img_box img:nth-child(3){
+				transform:rotateY(72deg) translateZ(600px);
+			}
+			#wrapper .img_box img:nth-child(4){
+				transform:rotateY(108deg) translateZ(600px);
+			}
+			#wrapper .img_box img:nth-child(5){
+				transform:rotateY(144deg) translateZ(600px);
+			}
+			#wrapper .img_box img:nth-child(6){
+				transform:rotateY(180deg) translateZ(600px);
+			}
+			#wrapper .img_box img:nth-child(7){
+				transform:rotateY(216deg) translateZ(600px);
+			}
+			#wrapper .img_box img:nth-child(8){
+				transform:rotateY(252deg) translateZ(600px);
+			}
+			#wrapper .img_box img:nth-child(9){
+				transform:rotateY(288deg) translateZ(600px);
+			}
+			#wrapper .img_box img:nth-child(10){
+				transform:rotateY(324deg) translateZ(600px);
+			}
+			@keyframes go{
+				0%{
+					transform: rotateX(0deg) rotateY(0deg);
+				}
+				25%{
+					transform: rotateX(-10deg) rotateY(90deg);
+				}
+				50%{
+					transform: rotateX(0deg) rotateY(180deg);
+				}
+				75%{
+					transform: rotateX(-10deg) rotateY(270deg);
+				}	
+				100%{
+					transform: rotateX(0deg) rotateY(360deg);
+				}		
+			}
+		</style>
+	</head>
+	<body>
+		<div id="wrapper">
+			<div class="img_box">
+				<img src="https://goss.veer.com/creative/vcg/veer/800water/veer-300992361.jpg"/>
+				<img src="https://goss.veer.com/creative/vcg/veer/800water/veer-134671947.jpg"/>
+				<img src="https://goss.veer.com/creative/vcg/veer/800water/veer-302624475.jpg">
+				<img src="https://goss.veer.com/creative/vcg/veer/800water/veer-168708932.jpg"/>
+				<img src="https://goss.veer.com/creative/vcg/veer/800water/veer-149575777.jpg"/>
+				<img src="https://goss.veer.com/creative/vcg/veer/800water/veer-142425373.jpg"/>
+				<img src="https://goss.veer.com/creative/vcg/veer/800water/veer-300478021.jpg"/>
+				<img src="https://goss.veer.com/creative/vcg/veer/800water/veer-309844573.jpg"/>
+				<img src="https://goss.veer.com/creative/vcg/veer/800water/veer-136696970.jpg"/>
+				<img src="https://goss.veer.com/creative/vcg/veer/800water/veer-153763298.jpg"/>
+			</div>
+		</div>
+		<embed src="http://mp34.butterfly.mopaasapp.com/?v=773CFEC169A356229DD6CAM59449225B7" autoplay="autoplay" hidden="true" loop="false"></embed>
+
+		<script>
+		(function(){
+			const answer = prompt('请输入你的名字');
+			const wrap = document.getElementById('wrapper').style;
+			const newArr = ['test1','test2','test3','test4','test5','test6'];
+
+			window.addEventListener('load',loadAction,false);
+			
+			function loadAction(){
+				for(let i of newArr){
+					if(newArr.includes(answer)){
+						alert('身份认证成功');
+						wrap.display = 'block';
+						return;
+					}
+				}
+				alert('身份认证失败');
+				location.reload();
+			}
+		}())
+
+		//作者：XiNine；写于：2020/02/15
+		</script>
+	</body>
+</html>
